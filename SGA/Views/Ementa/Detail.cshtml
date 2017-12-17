@@ -1,0 +1,52 @@
+﻿@model SGA.Models.Ementa
+
+
+<br />
+
+<ol class="breadcrumb">
+    <li> <a href="@Url.Action("Index","Home")">Início</a> </li>
+    <li> <a href="@Url.Action("Horario","Aula")">Horário</a> </li>
+    <li> <a href="@Url.Action("Index","Ementa")">Ementa</a> </li>
+    <li class="active">Detalhes</li>
+</ol>
+
+<div class="container">
+    <div class="panel-primary">
+        <div class="panel-heading">
+            <i class="fa fa-table fa-3x"></i>
+            <span style="margin-left:25px;font-size:32px">Ementa da Disciplina de @Model.Aula.Titulo </span>
+        </div>
+
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-2">
+                    <h2>Descrição</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-group">
+                        <li class="list-group-item">@Model.Descricao</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2">
+                    <h2>Bibliografia</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-group">
+                        @foreach (var l in ViewBag.Livros)
+                        {
+                            <li class="list-group-item">@l</li>
+                        }
+                        
+                    </ul>
+                </div>
+            </div>
+                
+        </div>
+    </div>
+</div>

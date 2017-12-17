@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
+namespace SGA.Models
+{
+    public class Voluntario
+    {
+        [Key]
+        public int VoluntarioId { get; set; }
+        [Required]
+        public string Nome { get; set; }
+        public string Sobrenome { get; set; }
+        public int? Idade { get; set; }
+        public string Cpf { get; set; }
+        [MaxLength(1)]
+        public string Status { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime DtNascimento { get; set; }
+        public DateTime DtCadastro { get; set; }
+        [MaxLength(9)]
+        public string TelefoneContato { get; set; }
+        public ICollection<Doacao> Doacoes { get; set; }
+    }
+}

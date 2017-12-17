@@ -1,0 +1,54 @@
+﻿@model List<SGA.Models.HorarioViewModel>
+<br />
+
+<ol class="breadcrumb">
+    <li> <a href="@Url.Action("Index","Home")">Início</a> </li>
+    <li class="active">Horário</li>
+</ol>
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <i class="fa fa-table fa-3x"></i>
+            <span style="margin-left:25px;font-size:32px">Horário </span>
+        </div>
+        <div class="panel-body">
+            <table class="table table-bordered table-striped table-hover table-condensed">
+                <tr>
+                    <th>
+                        Data
+                    </th>
+                    <th>
+                        Dia
+                    </th>
+                    <th>
+                        Horário
+                    </th>
+                    <th>
+                        Disciplina
+                    </th>
+                    <th>
+                        Ministrada Por
+                    </th>
+                    <th class="text-center">
+                        Ementa
+                    </th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Data </td>
+                        <td>@item.DiaDaSemana</td>
+                        <td>@item.Horario</td>
+                        <td>@item.Materia</td>
+                        <td>@item.Professor</td>
+                        <td class="text-center">
+                            <a class="btn btn-primary" data-toggle="tooltip" title="Clique para ver a ementa" href="@Url.Action("Detail", "Ementa", new { id = item.EmentaId })"><i class="fa fa-book" style="font-size:20px "></i></a>
+
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>

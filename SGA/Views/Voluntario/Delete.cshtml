@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Delete";
+}
+<br />
+<div class="container">
+
+    <div class="page-header">
+        <h2>Tem certeza que deseja deletar esse registro?</h2>
+    </div>
+    <div>
+
+    </div>
+
+    @using (Html.BeginForm())
+    {
+          <div class="form-actions no-color">
+            <input type="submit" value="Confirmar" class="btn btn-primary btn-lg" /> |
+              <a class="btn btn-danger btn-lg" href="@Url.Action("Index","Voluntario")">Cancelar</a>
+        </div>
+    }
+    @*<div class="panel panel-danger">
+        <div class="panel-heading">
+            <h2>Tem certeza que deseja deletar esse registro?</h2>
+        </div>
+        <div class="panel-body">
+
+        </div>
+    </div>*@
+</div>
+

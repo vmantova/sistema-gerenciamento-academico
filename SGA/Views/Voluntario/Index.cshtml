@@ -1,0 +1,71 @@
+﻿
+@model IEnumerable<SGA.Models.Voluntario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<ol class="breadcrumb">
+    <li> <a href="@Url.Action("Index","Home")">Início</a> </li>
+    <li> <a href="@Url.Action("Index","Cadastros")">Cadastros</a> </li>
+    <li class="active">Voluntário</li>
+</ol>
+
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-lg-10">
+                <i class="fa fa-group fa-3x"></i>
+                <span style="margin-left:25px;font-size:32px">Voluntários Cadastrados</span>
+            </div>
+            <div class="col-lg-offset-2 text-center" >
+                <a class="btn btn-default btn-lg" role="button" href="@Url.Action("Create")">Novo</a>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <table id="dtVoluntario" class="table table-bordered table-striped table-hover table-condensed">
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sobrenome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Idade)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cpf)
+                </th>
+                <th>
+                    Data de Nascimento
+                </th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.VoluntarioId)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Sobrenome)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Idade)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Cpf)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DtNascimento)</td>
+                    <td class="text-center">
+                        <a class="btn btn-primary" title="Editar" href="@Url.Action("Edit",new { id = item.VoluntarioId})"><i class="fa fa-pencil" style="font-size:20px "></i></a>
+                        <span></span>
+                        <a class="btn btn-danger" title="Excluir" href="@Url.Action("Delete",new { id = item.VoluntarioId})"><i class="fa fa-times" style="font-size:20px "></i></a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+

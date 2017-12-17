@@ -1,0 +1,97 @@
+﻿@model IEnumerable<SGA.Models.Professor>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<ol class="breadcrumb">
+    <li> <a href="@Url.Action("Index","Home")">Início</a> </li>
+    <li> <a href="@Url.Action("Index","Cadastros")">Cadastros</a> </li>
+    <li class="active">Professor</li>
+</ol>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-lg-10">
+                <i class="fa fa-group fa-3x"></i>
+                <span style="margin-left:25px;font-size:32px">Professores Cadastrados</span>
+            </div>
+            <div class="col-lg-offset-2 text-center">
+                <a class="btn btn-default btn-lg" role="button" href="@Url.Action("Create")">Novo</a>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <table class="table table-bordered table-striped table-hover table-condensed">
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Nome
+                </th>
+                <th>
+                    Idade
+                </th>
+                <th>
+                    Grau Acadêmico
+                </th>
+                <th>
+                    Disciplina
+                </th>
+                <th>
+                    Endereço
+                </th>
+                <th>
+
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProfessorId)
+                    </td>
+                    <td>
+                        @($"{item.Nome} {item.Sobrenome}")
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Idade)
+                    </td>
+                    <td>
+
+                        @{
+                            switch (item.Grau)
+                            {
+                                case "L":
+                                    <span>Licenciado</span>
+                                    break;
+                                case "M":
+                                    <span>Mestrado</span>
+                                    break;
+                                case "D":
+                                    <span>Doutorado</span>
+                                    break;
+
+                            };
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AulaId)
+                    </td>
+                    <td>
+                        @($"{item.Endereco}, {item.Numero}, {item.Cidade} - {item.Estado}")
+                    </td>
+                    <td class="text-center">
+                        <a class="btn btn-primary" data-toggle="tooltip" title="Editar" href="@Url.Action("Edit","Professor",new { id = item.ProfessorId})"><i class="fa fa-pencil" style="font-size:20px "></i></a>
+                        <span></span>
+                        <a class="btn btn-danger" data-toggle="tooltip" title="Excluir" href="@Url.Action("Delete","Professor",new { id = item.ProfessorId})"><i class="fa fa-times" style="font-size:20px "></i></a>
+                    </td>
+                </tr>
+                            }
+
+        </table>
+    </div>
+</div>

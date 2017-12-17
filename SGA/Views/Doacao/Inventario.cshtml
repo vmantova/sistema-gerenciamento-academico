@@ -1,0 +1,60 @@
+﻿@model List<SGA.Models.Doacao>
+
+
+<ol class="breadcrumb">
+    <li> <a href="@Url.Action("Index","Home")">Início</a> </li>
+    <li class="active">Inventário</li>
+</ol>
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <i class="fa fa-table fa-3x"></i>
+            <span style="margin-left:25px;font-size:32px">Inventário das doações  </span>
+        </div>
+        <div class="panel-body">
+            <table class="table table-bordered table-striped table-hover table-condensed">
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Item
+                    </th>
+                    <th>
+                        Quantidade
+                    </th>
+                    <th>
+                        Valor Estimado
+                    </th>
+                    <th>Data da Doação</th>
+                    <th></th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.DoacaoId </td>
+                        <td>@item.Item</td>
+                        <td>@item.Quantidade</td>
+                        <td>@string.Format("R$ {0}", @item.Preco)</td>
+                        <td>@string.Format("{0:dd/MM/yyyy}", @item.DtCadastro)</td>
+                        <td class="text-center">
+                            <a class="btn btn-primary" data-toggle="tooltip" title="Editar" href="@Url.Action("Edit","Doacao",new { id = item.DoacaoId})"><i class="fa fa-pencil" style="font-size:20px "></i></a>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+        <div class="panel-footer">
+            <div class="row">
+                <div class="col-lg-9">
+                    <h2>Valor total das doações:</h2>
+                </div>
+                <div style="margin-top:10px" class="col-lg-3">
+                    <span class="label label-info" style="font-size:44px">@string.Format("{0}",ViewBag.Total)</span>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>

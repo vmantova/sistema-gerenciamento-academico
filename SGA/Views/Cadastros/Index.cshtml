@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Cadastros";
+}
+<ol class="breadcrumb">
+    <li> <a href="@Url.Action("Index","Home")">Início</a> </li>
+    <li class="active"> Cadastros</li>
+</ol>
+
+<div class="container">
+
+    <div class="panel panel-primary">
+        <div class="panel panel-heading">
+            <div>
+                <i class="fa fa-address-book fa-3x"></i>
+                <span style="margin-left:25px;font-size:32px">Cadastros</span>
+            </div>
+            
+        </div>
+        <div class="panel panel-body">
+            <div class="well">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="text-center">
+                            <a href="@Url.Action("Index","Voluntario")"><i style="font-size: 132px" class="fa fa-users fa-5x"></i></a>
+                        </div>
+                        <div class="text-center"><h4>Voluntário</h4> </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="text-center">
+                            <a href="@Url.Action("Index","Professor")"> <i style=" font-size: 132px" class="fa fa-graduation-cap"></i></a>
+                        </div>
+                        <div class="text-center"><h4>Professor</h4> </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="text-center">
+                            <a href="@Url.Action("Index","Aluno")"><i style=" font-size: 132px" class="fa fa-user fa-5x"></i></a>
+                        </div>
+                        <div class="text-center"><h4>Aluno</h4> </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="text-center">
+                            <a href="@Url.Action("Index","Aula")"><i style="font-size: 132px" class="fa fa-bars fa-5x"></i></a>
+                        </div>
+                        <div class="text-center"><h4>Aula   </h4> </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="text-center">
+                            <a href="@Url.Action("Index","Ementa")"> <i style=" font-size: 132px" class="fa fa-book"></i></a>
+                        </div>
+                        <div class="text-center"><h4>Ementa</h4> </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="text-center">
+                            <a href="@Url.Action("Create","Doacao")"><i style=" font-size: 132px" class="fa fa-cubes fa-5x"></i></a>
+                        </div>
+                        <div class="text-center"><h4>Doação</h4> </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
